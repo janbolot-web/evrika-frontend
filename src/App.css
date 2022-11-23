@@ -1,0 +1,32 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Manrope;
+  background-color: #f8f8ff;
+}
+
+.container {
+  max-width: 1310px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+@media (max-width:1025px) {
+  .container{
+    max-width: 766px;
+  }
+}
+
+a {
+  color: #06283d;
+  text-decoration: none;
+}
+
+h2 {
+  margin: 0;
+  padding: 0;
+}
