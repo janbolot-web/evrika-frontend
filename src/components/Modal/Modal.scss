@@ -1,4 +1,3 @@
-
 .modal {
   position: fixed;
   overflow: auto;
@@ -9,38 +8,39 @@
   top: 0;
   left: 0;
   padding: 80px 0;
+  margin-top: 40px;
   input {
-  width: 100%;
-  font-family: Manrope;
-  border-radius: 5px;
-  padding: 15px 20px;
-  border: none;
-  outline: none;
-  font-size: 16px;
-  color: #0099f8;
-  border: 1px solid #0099f8;
-  margin-bottom: 20px;
-  &::placeholder {
+    width: 100%;
+    font-family: Manrope;
+    border-radius: 5px;
+    padding: 15px 20px;
+    border: none;
+    outline: none;
+    font-size: 16px;
     color: #0099f8;
-    opacity: 0.4;
+    border: 1px solid #0099f8;
+    margin-bottom: 20px;
+    &::placeholder {
+      color: #0099f8;
+      opacity: 0.4;
+    }
   }
-}
-textarea {
-  max-width: 100%;
-  border: 1px solid #0099f8;
-  border-radius: 5px;
-  font-size: 16px;
-  padding: 15px 20px;
-  color: #0099f8;
-  font-weight: 400;
-  outline: none;
-  font-family: Manrope;
-  margin-bottom: 20px;
-  &::placeholder {
+  textarea {
+    max-width: 100%;
+    border: 1px solid #0099f8;
+    border-radius: 5px;
+    font-size: 16px;
+    padding: 15px 20px;
     color: #0099f8;
-    opacity: 0.4;
+    font-weight: 400;
+    outline: none;
+    font-family: Manrope;
+    margin-bottom: 20px;
+    &::placeholder {
+      color: #0099f8;
+      opacity: 0.4;
+    }
   }
-}
   &__container {
     background: #fff;
     border-radius: 15px;
@@ -63,6 +63,7 @@ textarea {
     display: flex;
     flex-direction: column;
   }
+
   &__preview {
     width: 50%;
     h2 {
@@ -81,13 +82,12 @@ textarea {
       font-size: 18px;
       font-weight: 600;
     }
-    p{
-        margin-bottom: 20px;
+    p {
+      margin-bottom: 20px;
     }
   }
   &__btn {
     button {
-      margin: 0 auto;
       display: flex;
       align-items: center;
       background: #0099f8;
@@ -125,6 +125,9 @@ textarea {
       color: #0099f8;
       cursor: pointer;
     }
+  }
+  &__module {
+    width: 50% !important;
   }
   &__btns {
     display: flex;

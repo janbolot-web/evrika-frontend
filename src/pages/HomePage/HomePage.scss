@@ -1,3 +1,5 @@
+@import '../../variables';
+
 .home {
   margin-top: 40px;
   &__banner {
@@ -15,7 +17,7 @@
     background: linear-gradient(
       90deg,
       rgb(122, 255, 142) 0%,
-      rgb(34, 136, 245) 100%
+      rgb(34, 136, 245) 100%,
     );
     border-radius: 30px;
     color: #fff;
@@ -40,6 +42,11 @@
     }
     @media (max-width: 426px) {
       border-radius: 10px;
+      background: linear-gradient(
+      45deg,
+      rgb(34, 136, 245) 0%,
+      rgb(122, 255, 142) 100%,
+    );
     }
   }
   &__title {

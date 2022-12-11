@@ -1,10 +1,14 @@
+@import "../../variables";
+
 .courses {
+  color: $mainColorLight;
+  margin-bottom: 200px;
   &__container {
   }
   &__header {
     display: flex;
     justify-content: space-between;
-    color: #06283d;
+    color: $mainColorLight;
     padding-bottom: 25px;
     border-bottom: 1px solid rgba(6, 40, 61, 0.1);
     margin-bottom: 50px;
@@ -13,6 +17,19 @@
       font-size: 34px;
       font-weight: 700;
       line-height: 25px;
+      @media (max-width: 600px) {
+        margin-bottom: 20px;
+      }
+      @media (max-width: 426px) {
+        font-size: 32px;
+      }
+      @media (max-width: 426px) {
+        font-size: 28px;
+      }
+    }
+    @media (max-width: 600px) {
+      flex-direction: column;
+      align-items: center;
     }
   }
   &__search {
@@ -21,7 +38,7 @@
     align-items: center;
     padding: 0 15px;
     background: #ffffff;
-    border: 1px solid #e8e5e5;
+    border: 1px solid $mainColorLight;
     border-radius: 20px;
     input {
       width: 100%;
@@ -34,9 +51,16 @@
       color: #06283d;
       font-weight: 500;
       &::placeholder {
-        color: #e8e5e5;
+        color: #06283d6f;
+
         font-weight: 400;
       }
+    }
+    span {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #06283d;
     }
   }
   &__items {
@@ -51,93 +75,73 @@
   }
   &__item {
     width: 400px;
-    padding: 30px 18px 30px 20px;
+    padding: 20px;
     box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.04);
     border-radius: 20px;
     margin-bottom: 50px;
-    background: #fff;
+    background: #313140;
+    color: #80b2ff;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all  0.3s ease;
     &-header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 20px;
+      @media (max-width: 376px) {
+        display: flex;
+        flex-direction: column-reverse;
+      }
+    }
+    &:hover {
+      color: #313140;
+      background: #ffbd00;
     }
     @media (max-width: 1025px) {
       width: 500px;
     }
   }
-  &__btns {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-   
-  }
-  &__btn-info {
-    padding: 15px 30px;
-    background-image: linear-gradient(
-      320deg,
-      hsl(39deg 100% 50%) 0%,
-      hsl(36deg 100% 50%) 11%,
-      hsl(34deg 100% 50%) 22%,
-      hsl(31deg 100% 50%) 33%,
-      hsl(28deg 100% 50%) 44%,
-      hsl(25deg 100% 50%) 56%,
-      hsl(21deg 100% 50%) 67%,
-      hsl(17deg 100% 50%) 78%,
-      hsl(11deg 100% 51%) 89%,
-      hsl(0deg 100% 53%) 100%
-    );
-    cursor: pointer;
-    border-radius: 5px;
-    color: #fff;
-    font-weight: 500;
-  }
-  &__btn-buy {
-    padding: 15px 20px;
-    background-image: linear-gradient(
-      320deg,
-      hsl(181deg 97% 49%) 0%,
-      hsl(186deg 100% 48%) 11%,
-      hsl(190deg 100% 47%) 22%,
-      hsl(195deg 100% 46%) 33%,
-      hsl(199deg 100% 44%) 44%,
-      hsl(204deg 100% 42%) 56%,
-      hsl(208deg 100% 39%) 67%,
-      hsl(213deg 100% 35%) 78%,
-      hsl(219deg 100% 31%) 89%,
-      hsl(227deg 100% 26%) 100%
-    );
-    cursor: pointer;
-    border-radius: 5px;
-    color: #fff;
-    font-weight: 500;
-  }
   &__content {
     max-width: 220px;
+    display: flex;
+    flex-direction: column;
     @media (max-width: 1025px) {
       max-width: 300px;
     }
   }
   &__name {
-    font-size: 22px;
-    font-weight: 600;
+    font-size: 18px;
+    font-weight: 700;
     line-height: 25px;
     margin-bottom: 22px;
+    color: #fff;
+    @media (max-width: 390px) {
+      font-size: 20px;
+    }
+    @media (max-width: 376px) {
+      text-align: center;
+    }
   }
   &__desc {
+    font-size: 15px;
+    margin-bottom: 10px;
   }
   &__price {
-    color: orange;
-    font-weight: 700;
-    margin-top: 20px;
-    font-size: 18px;
+    //   color: orange;
+    //   font-weight: 700;
+    //   margin-top: 20px;
+    color: #fff;
+    //   font-size: 18px;
   }
   &__img {
-    width: 140px;
-    max-height: 140px;
+    width: 100px;
+    height: 100%;
     img {
       width: 100%;
       height: 100%;
+    }
+    @media (max-width: 376px) {
+      margin-bottom: 20px;
     }
   }
 }

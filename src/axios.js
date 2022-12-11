@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const instance = axios.create({
-  baseURL: "http://localhost:5000/api",
+  baseURL: "https://evrika-backend.vercel.app/api",
 });
 
 instance.interceptors.request.use((config) => {
@@ -14,3 +14,6 @@ instance.interceptors.request.use((config) => {
 // });
 
 export default instance;
+
+// https://evrika-backend.vercel.app/api
+// http://localhost:5000/api

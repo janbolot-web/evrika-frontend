@@ -15,8 +15,8 @@ const LoginPage = () => {
 
   const { register, handleSubmit, setError, formState: { errors, isValid } } = useForm({
     defaultValues: {
-      email: "user@gmail.com",
-      password: "12345"
+      email: "admin@gmail.com",
+      password: "admin"
     }, mode: 'onChange'
   })
 
@@ -51,7 +51,7 @@ const LoginPage = () => {
             {errors.password?.message && <span>{errors.password?.message}</span>}
             <button disabled={!isValid} type='submit' className="login__btn">Войти</button>
           </form>
-          <p className='registration__forgot'>Нет аккаунта? Регистрация</p>
+          <p className='login__forgot'>Нет аккаунта? Зарегистроваться</p>
         </div>
       </div>
     </div>

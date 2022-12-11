@@ -34,10 +34,10 @@ export const fetchCourse = createAsyncThunk(
 
 export const fetchLessons = createAsyncThunk(
   "course/fetchLessons",
-  async function (id) {
+  async function ({ id, userId }) {
     try {
       const data = await axios
-        .get("/getLessons/" + id)
+        .get("/getLessons/" + id + "?userId=" + userId)
         .then((res) => res.data)
         .then((data) => data);
       return data;
@@ -49,10 +49,43 @@ export const fetchLessons = createAsyncThunk(
 
 export const fetchLesson = createAsyncThunk(
   "course/fetchLesson",
+  async function (params) {
+    console.log(params);
+    try {
+      const data = await axios
+        .get("/getLesson/" + params.courseId + "?idLesson=" + params.lessonId)
+        .then((res) => res.data)
+        .then((data) => data);
+      console.log(data);
+      return data;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+);
+
+export const fetchModules = createAsyncThunk(
+  "course/fetchModules",
   async function (id) {
     try {
       const data = await axios
-        .get("/getLesson/" + id)
+        .get("/getModules/" + id)
+        .then((res) => res.data)
+        .then((data) => data);
+      return data;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+);
+
+export const fetchModule = createAsyncThunk(
+  "course/fetchModule",
+  async function (params) {
+    console.log(params);
+    try {
+      const data = await axios
+        .get("/getModule/" + params.courseId + "?moduleId=" + params.moduleId)
         .then((res) => res.data)
         .then((data) => data);
       return data;
@@ -93,6 +126,37 @@ export const deleteCourse = createAsyncThunk(
   }
 );
 
+export const deleteModule = createAsyncThunk(
+  "courese/deleteModule",
+  async function ({ moduleId, id }) {
+    try {
+      await axios
+        .delete(`/deleteModule/${id}?moduleId=${moduleId}`)
+        .then((res) => res.data)
+        .then((data) => toast.success(data.message));
+      return moduleId;
+    } catch (error) {
+      toast.error(error.response.data.message);
+      console.log(error);
+    }
+  }
+);
+
+export const createModule = createAsyncThunk(
+  "courese/createModule",
+  async function (params) {
+    try {
+      await axios
+        .patch(`/createModule/${params.id}`, params)
+        .then((res) => res.data)
+        .then((data) => toast.success(data.message));
+    } catch (error) {
+      toast.error(error.response.data.message);
+      console.log(error);
+    }
+  }
+);
+
 const courseSlice = createSlice({
   name: "course",
   initialState: {
@@ -100,10 +164,16 @@ const courseSlice = createSlice({
     courseDetail: null,
     lessons: null,
     lesson: null,
+    modules: null,
+    module: null,
     status: "",
     error: null,
   },
-  reducers: {},
+  reducers: {
+    removeLesson: (state) => {
+      state.lesson = null;
+    },
+  },
   extraReducers: {
     [fetchAllCourses.pending]: (state, action) => {
       state.status = "loading";
@@ -171,7 +241,51 @@ const courseSlice = createSlice({
     [deleteCourse.rejected]: (state, action) => {
       state.status = "error";
     },
+    [fetchModules.pending]: (state, action) => {
+      state.status = "loading";
+    },
+    [fetchModules.fulfilled]: (state, action) => {
+      state.status = "loaded";
+      state.modules = action.payload;
+    },
+    [fetchModules.rejected]: (state, action) => {
+      state.status = "error";
+    },
+    [fetchModule.pending]: (state, action) => {
+      state.status = "loading";
+    },
+    [fetchModule.fulfilled]: (state, action) => {
+      state.status = "loaded";
+      state.module = action.payload;
+    },
+    [fetchModule.rejected]: (state, action) => {
+      state.status = "error";
+    },
+    [createModule.pending]: (state, action) => {
+      state.status = "loading";
+    },
+    [createModule.fulfilled]: (state, action) => {
+      state.status = "loaded";
+    },
+    [createModule.rejected]: (state, action) => {
+      state.status = "error";
+    },
+    [deleteModule.pending]: (state, action) => {
+      state.status = "loading";
+    },
+    [deleteModule.fulfilled]: (state, action) => {
+      state.status = "loaded";
+      state.modules = state.modules.filter(
+        (course) => course._id !== action.payload
+      );
+      // courses.filter((course) => course.id !== action.payload);
+    },
+    [deleteModule.rejected]: (state, action) => {
+      state.status = "error";
+    },
   },
 });
 
 export const courseReducer = courseSlice.reducer;
+
+export const { removeLesson } = courseSlice.actions;

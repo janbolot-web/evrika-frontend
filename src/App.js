@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { ToastContainer } from "react-toastify";
 
-import "./App.css";
+import "./App.scss";
 import Header from "./components/Header";
 import { fetchAuthMe, selectIsAuth } from "./store/slices/auth";
 import "react-toastify/dist/ReactToastify.css";

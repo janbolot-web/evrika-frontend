@@ -5,8 +5,8 @@
   &__block {
     max-width: 520px;
     margin: 0 auto;
-    background: #fcfcff;
-    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.04);
+    background: #22222f;
+    box-shadow: 0px 4px 20px rgb(0 0 0 / 15%);
     border-radius: 20px;
     text-align: center;
     padding-top: 30px;
@@ -17,7 +17,7 @@
     font-size: 34px;
     font-weight: 700;
     line-height: 46px;
-    color: #06283d;
+    color: #fff;
     margin-bottom: 30px;
   }
   &__form {
@@ -31,9 +31,10 @@
       outline: none;
       border-bottom: 1px solid #e7e7e7;
       font-size: 16px;
-      color: #06283d;
+      color: #fff;
       margin-top: 30px;
       padding-bottom: 8px;
+      background: #22222f;
       &::placeholder {
         font-weight: 400;
         color: silver;
@@ -49,7 +50,7 @@
   &__btn {
     margin: 50px auto 0;
     color: #fff;
-    background-color: #06283d;
+    background-color: transparent;
     border: none;
     font-family: Manrope;
     font-size: 18px;
@@ -58,6 +59,7 @@
     letter-spacing: 0em;
     text-align: center;
     padding: 12px 38px;
+    border: 1px solid silver;
     border-radius: 10px;
     cursor: pointer;
     &:disabled {
@@ -67,6 +69,6 @@
   &__forgot {
     margin-top: 20px;
     font-weight: 500;
-    color: #06283d;
+    color: #fff;
   }
 }

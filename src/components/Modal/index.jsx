@@ -1,27 +1,31 @@
 import React, { useEffect, useState } from 'react'
-import { BsPlusLg } from 'react-icons/bs'
-import { MdOutlineClose } from 'react-icons/md'
 import { useDispatch } from 'react-redux'
 import { createCourse } from '../../store/slices/course'
 
 import './Modal.scss'
 
-const Modal = ({ setShowModal }) => {
+const Modal = ({ setShowModal, dispatch, serCourseData }) => {
   const [title, setTitle] = useState('Комеди Клаб, 10 сезон, 23 выпуск')
   const [duration, setDuration] = useState('5 часов / 15 уроков')
   const [description, setDescription] = useState('Шутки резидентов Comedy Club заразны, но не опасны. Наоборот, они способны качественно повысить уровень жизни граждан огромной страны. Смотрите, даже доллар и евро падают со смеху, а настроение у нефти растет прямо на глазах!')
   const [price, setPrice] = useState(5999)
-  const [previewImgUrl, setPreviewImgUrl] = useState('https://images.pexels.com/photos/15286/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')
+  const [previewImgUrl, setPreviewImgUrl] = useState('https://www.imgworlds.com/wp-content/themes/IMG2019/img/phase3/slides/lostvalley-trex.png')
   const [previewVideoUrl, setPreviewVideoUrl] = useState('4lv6yuh36n')
-  const [authorName, setAuthorName] = useState('Гулсана Дуйшонбиева')
+  const [authorName, setAuthorName] = useState('ФИО')
   const [authorProfession, setAuthorProfession] = useState('Учитель кыргызского языка и литературы')
   const [authors, setAuthors] = useState([])
-  const [lessons, setLessons] = useState([])
-  const [inputCount, setInputCount] = useState([])
-  const [lessonName, setLessonName] = useState("Урок 1")
-  const [lessonVideoUrl, setLessonVideoUrl] = useState("4lv6yuh36n")
-  const [lessonDescription, setLessonDescription] = useState("Выпуск шикарный, больше видео и лайков добавили бы)")
-  const dispatch = useDispatch()
+  const [modules, setModules] = useState([
+    {
+      name: "",
+      lessons: [
+        {
+          name: "",
+          videoUrl: "",
+          description: ""
+        }
+      ]
+    }
+  ])
 
   const addCourseHandler = () => {
     setAuthors({
@@ -43,15 +47,19 @@ const Modal = ({ setShowModal }) => {
         profession: "Бизнес-ментор, коуч команд продаж",
         avatarUrl: "https://drive.google.com/file/d/1xo6VFYSnX5Ano2jki4HPhReYhnsYg-7L/view?usp=share_link",
       }],
-      lessons: [lessons],
+      // lessons: lessons,
     }
+
     dispatch(createCourse(courseData))
+    // console.log(courseData);
     setShowModal(false)
   }
 
-  useEffect(() => {
-    setLessons({ name: lessonName, videoUrl: lessonVideoUrl, description: lessonDescription })
-  }, [lessonName, lessonVideoUrl, lessonDescription])
+  // useEffect(() => {
+  //   setLessons([
+  //     ...lessons, { name: lessonName, videoUrl: lessonVideoUrl, description: lessonDescription }
+  //   ])
+  // }, [lessonName, lessonVideoUrl, lessonDescription])
 
   return (
     <div className='modal'>
@@ -75,25 +83,16 @@ const Modal = ({ setShowModal }) => {
             <input value={authorProfession} onChange={(e) => setAuthorProfession(e.target.value)} type="text" placeholder='Профессия автора' />
           </div>
         </div>
-        {inputCount.map((item, i) => (
-          <form key={i} className="modal__video-form">
-            <span>
-              <MdOutlineClose size={24} onClick={() => {
-              }} />
-            </span>
-            <input value={lessonName} onChange={(e) => setLessonName(e.target.value)} type="text" placeholder='Название видео' />
-            <input value={lessonVideoUrl} onChange={(e) => setLessonVideoUrl(e.target.value)} type="text" placeholder='Ссылка на видео' />
-            <textarea name="" value={lessonDescription} onChange={(e) => setLessonDescription(e.target.value)} id="" cols="30" placeholder='Описание' rows="10"></textarea>
-          </form>
-        ))}
+
+        {/* <input type="text" className='modal__module' />
         <div className="modal__btn">
-          <button onClick={() => setInputCount([...inputCount, 1])}>
+          <button onClick={() => setModuleTitle()}>
             <BsPlusLg />
             <span>
-              Добавить видео файл
+              Добавить модуль
             </span>
           </button>
-        </div>
+        </div> */}
         <div className="modal__btns">
           <div className="modal__btn ">
             <button onClick={() => setShowModal(false)} className='cancel_btn'>

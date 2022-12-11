@@ -43,10 +43,68 @@ export const fetchAuthMe = createAsyncThunk(
     return data;
   }
 );
+
+export const fetchUsers = createAsyncThunk(
+  "auth/fetchUsers",
+  async function () {
+    const data = await axios
+      .get(`/getUsers`)
+      .then((res) => res.data)
+      .then((data) => data);
+    return data;
+  }
+);
+
+export const fetchUserById = createAsyncThunk(
+  "auth/fetchUserById",
+  async function (id) {
+    console.log(id);
+    const data = await axios
+      .get(`/getUserById/${id}`)
+      .then((res) => res.data)
+      .then((data) => data);
+    return data;
+  }
+);
+
+export const deleteUser = createAsyncThunk(
+  "auth/deleteUser",
+  async function (id) {
+    try {
+      await axios
+        .delete(`/removeUser/${id}`)
+        .then((res) => res.data)
+        .then((data) => toast.success(data.message));
+      return id;
+    } catch (error) {
+      toast.error(error.response.data.message);
+      console.log(error);
+    }
+  }
+);
+
+export const addModuleToUser = createAsyncThunk(
+  "auth/addModuleToUser",
+  async function (params) {
+    try {
+      await axios
+        .patch(`/addCourseToUser`, { params })
+        .then((res) => res.data)
+        .then((data) => toast.success(data.message));
+      return;
+    } catch (error) {
+      toast.error(error.response.data.message);
+      console.log(error);
+    }
+  }
+);
+
 const authSlice = createSlice({
   name: "auth",
   initialState: {
     data: null,
+    users: null,
+    user: null,
     status: "",
     error: null,
   },
@@ -107,6 +165,52 @@ const authSlice = createSlice({
     [fetchRegister.rejected]: (state, action) => {
       state.status = "error";
       state.data = null;
+    },
+    [fetchUsers.pending]: (state) => {
+      state.status = "loading";
+      state.users = null;
+    },
+    [fetchUsers.fulfilled]: (state, action) => {
+      state.status = "loaded";
+      state.users = action.payload;
+    },
+    [fetchUsers.rejected]: (state, action) => {
+      state.status = "error";
+      state.users = null;
+    },
+    [deleteUser.pending]: (state) => {
+      state.status = "loading";
+    },
+    [deleteUser.fulfilled]: (state, action) => {
+      state.status = "loaded";
+      console.log(action.payload);
+      state.users = state.users.filter((user) => user._id !== action.payload);
+    },
+    [deleteUser.rejected]: (state, action) => {
+      state.status = "error";
+    },
+    [addModuleToUser.pending]: (state) => {
+      state.status = "loading";
+    },
+    [addModuleToUser.fulfilled]: (state, action) => {
+      state.status = "loaded";
+      console.log(action.payload);
+      state.users = state.users.filter((user) => user._id !== action.payload);
+    },
+    [addModuleToUser.rejected]: (state, action) => {
+      state.status = "error";
+    },
+    [fetchUserById.pending]: (state) => {
+      state.status = "loading";
+      state.user = null;
+    },
+    [fetchUserById.fulfilled]: (state, action) => {
+      state.status = "loaded";
+      state.user = action.payload;
+    },
+    [fetchUserById.rejected]: (state, action) => {
+      state.status = "error";
+      state.user = null;
     },
   },
 });

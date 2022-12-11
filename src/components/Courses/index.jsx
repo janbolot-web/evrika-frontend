@@ -21,30 +21,53 @@ const Courses = () => {
         <div className="courses__header">
           <h2>Наши курсы</h2>
           <div className="courses__search">
-            <FiSearch size={20} color='#E8E5E5' />
+            <span>
+              <FiSearch size={20} />
+            </span>
             <input type="text" placeholder='Что вы ищите?' />
           </div>
         </div>
         <ul className="courses__items">
           {courses && courses.map(course => (
-            <li key={course.id}  className="courses__item">
+            <Link to={'/course/' + course.id} key={course.id} className="courses__item">
               <div className="courses__item-header">
                 <div className="courses__content">
                   <div className="courses__name">{course.title}</div>
                   <div className="courses__desc">{course.duration}</div>
-                  <div className="courses__price">{course.price} сом</div>
+                  {/* <div className="courses__price">{course.price} сом</div> */}
                 </div>
                 <div className="courses__img">
-                  <img src={course.previewImgUrl} alt="" />
+                  <img src="https://fs-thb02.getcourse.ru/fileservice/file/thumbnail/h/6506c5dc9895c11f8fa9b8d267b05dc4.png/s/500x/a/248212/sc/209" alt="" />
                 </div>
               </div>
-              <div className="courses__btns">
-                <Link to={'/course/' + course.id} className="courses__btn-info">Подробнее</Link>
-                <div className="courses__btn-buy">Получить курс</div>
+            </Link>
+          ))}
+        </ul>
+        {/* <ul className="courses__cards">
+          {courses && courses.map(course => (
+            <li key={course.id} className="courses__card">
+              <div className="courses__img">
+                <img src={course.previewImgUrl} alt="" />
+              </div>
+              <h2 className='courses__title'>{course.title}</h2>
+
+              <div className="courses__content">
+                <p className="courses__price">
+                  {course.duration}
+                </p>
+                <p className='courses__descr'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, quibusdam. Molestias error, obcaecati nihil illo fugiat numquam quam animi ex provident saepe maxime ab eum aperiam porro, nisi cumque nulla?</p>
+                <Link to={'/course/'+course.id} className="courses__btn">
+                  <span className='span-1'></span>
+                  <span className='span-2'></span>
+                  <span className='span-3'></span>
+                  <span className='span-4'></span>
+                  Подробнее
+                </Link>
               </div>
             </li>
           ))}
-        </ul>
+        </ul> */}
+
       </div>
     </div>
   )

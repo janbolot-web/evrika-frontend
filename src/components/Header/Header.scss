@@ -1,11 +1,32 @@
+@import "../../variables";
+
 .header {
-  background: #fcfcff;
-  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.04);
+  // background: $bgColorLight;
+  background-color: #22222f;
+  box-shadow: $boxShadow;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9;
+  color: #313140;
+  box-shadow: 0px 4px 20px rgb(0 0 0 / 15%);
+  &__block {
+    height: 79px;
+    background: transparent;
+    @media (max-width: 426px) {
+      height: 69px;
+    }
+    @media (max-width: 321px) {
+      height: 59px;
+    }
+  }
   &__container {
     height: 80px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+
     @media (max-width: 426px) {
       height: 70px;
     }
@@ -17,7 +38,6 @@
     font-family: Montserrat;
     font-size: 32px;
     font-weight: 700;
-    color: #06283d;
     @media (max-width: 426px) {
       font-size: 28px;
     }
@@ -69,7 +89,7 @@
     }
     &-list {
       list-style-type: none;
-      font-size: 32px;
+      font-size: 28px;
       font-weight: 500;
       text-align: center;
       @media (max-width: 426px) {
@@ -106,21 +126,32 @@
       flex-direction: column;
       text-align: center;
       margin-top: 20px;
+      color: #313140;
     }
     &-register {
       margin-bottom: 10px;
-      border: 1px solid #06283d;
-      border-radius: 30px;
+      border: 1px solid $mainColorLight;
+      border-radius: 5px;
       padding: 8px 30px;
-      color: #06283d;
       font-weight: 500;
     }
     &-login {
-      border: 1px solid #06283d;
-      border-radius: 30px;
+      background-color: transparent;
+      color: #313140;
+      border-radius: 5px;
       padding: 8px 30px;
-      color: #06283d;
       font-weight: 500;
+    }
+    &-switch {
+      margin-top: 20px;
+      &-icon {
+        border: 1px solid silver;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+      }
     }
   }
   &__nav {
@@ -135,28 +166,27 @@
     cursor: pointer;
   }
   &__link {
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 500;
     line-height: 22px;
     font-family: Montserrat;
   }
   &__switch {
-    width: 100px;
+    width: 40px;
     height: 40px;
-    background: #06283d;
+    border: 1px solid #e2e6eb;
     border-radius: 30px;
     display: flex;
     align-items: center;
-    padding-left: 5px;
-    margin-left: 10%;
     cursor: pointer;
+    margin-right: 10px;
     &-icon {
       display: flex;
       align-items: center;
       justify-content: center;
       background: #fff;
-      width: 50px;
-      height: 30px;
+      width: 100%;
+      height: 100%;
       border-radius: 30px;
     }
   }
@@ -164,13 +194,15 @@
     display: flex;
     align-items: center;
     font-weight: 500;
-    gap: 50px;
+    gap: 15px;
+    font-size: 15px;
   }
   &__login {
-    background: #06283d;
+    background: transparent;
     color: #fff;
-    padding: 12px 35px;
-    border-radius: 30px;
+    padding: 8px 25px;
+    border-radius: 5px;
+    border: 1px solid $mainColorLight;
     cursor: pointer;
   }
   &__logout {
@@ -184,14 +216,15 @@
     cursor: pointer;
   }
   &__register {
-    color: #06283d;
     cursor: pointer;
+    padding: 11px 20px;
+    border-radius: 5px;
   }
 }
 
 .active {
-  font-weight: 600;
-  color: orange;
+  font-weight: 700;
+  color: $mainColorLight;
   padding-bottom: 5px;
-  border-bottom: 2px solid orange;
+  border-bottom: 2px solid $mainColorLight;
 }
