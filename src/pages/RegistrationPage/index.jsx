@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 
 import { fetchRegister, selectIsAuth } from '../../store/slices/auth'
 import './RegistrationPage.scss'
-import { Navigate } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom'
 
 const RegistrationPage = () => {
   const isAuth = useSelector(selectIsAuth)
@@ -13,9 +13,9 @@ const RegistrationPage = () => {
 
   const { register, handleSubmit, setError, formState: { errors, isValid } } = useForm({
     defaultValues: {
-      email: "user@gmail.com",
-      name: "Janbolot",
-      password: "12345"
+      email: "",
+      name: "",
+      password: ""
     }, mode: 'onChange'
   })
 
@@ -51,13 +51,13 @@ const RegistrationPage = () => {
               placeholder='Введите ваш email' />
             {errors.email?.message && <span>{errors.email?.message}</span>}
             <input type="password"
-              {...register('password', { required: 'Укажите пароль' })}
+              {...register('password', { required: 'Укажите пароль',minLength:6 })}
               className="password" placeholder='Придумайте пароль' />
             {errors.password?.message && <span>{errors.password?.message}</span>}
 
             <button disabled={!isValid} type='submit' className="registration__btn" >Зарегистрироваться</button>
           </form>
-          <p className='registration__forgot'>Уже есть аккаунт? Войти</p>
+          <p className='registration__forgot'>Уже есть аккаунт? <Link to='/login' style={{color:"#0099f8"}}>Войти</Link></p>
         </div>
       </div>
     </div>

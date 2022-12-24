@@ -15,7 +15,7 @@ const BuyPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const radio = useRef()
 
-  const methods = [{ name: "О! Деньги", img: "https://play-lh.googleusercontent.com/ZNZIBhYLAFKo5dZVTcLq5bLGKGyQXysxJrbrXZyeB6APYJWIs4zn1Ju9P3diZbhOIj0", requisites: "0700030199", isSelect: false }, { name: "MBank Кыргызстан", img: "https://play-lh.googleusercontent.com/dh-5T6Q39QNz0jDWcL0ezZLOn4apU7Aui0_RGA0vQpGNCo5gMno6VUF8ZHQxHNqvldnX", requisites: "4177 4901 4250 7690", isSelect: false }, { name: "Элсом", img: "https://play-lh.googleusercontent.com/aoEtuZlNU5y4QS3Usqdsh39wTTDoasPsiaQ2j7Ta8QMERkhF2xaDn9hbRluQiBA0crg", requisites: "0700030199", isSelect: false }]
+  const methods = [{ name: "О! Деньги", img: "https://play-lh.googleusercontent.com/ZNZIBhYLAFKo5dZVTcLq5bLGKGyQXysxJrbrXZyeB6APYJWIs4zn1Ju9P3diZbhOIj0", requisites: "0705089710", isSelect: false }, { name: "MBank Кыргызстан", img: "https://play-lh.googleusercontent.com/dh-5T6Q39QNz0jDWcL0ezZLOn4apU7Aui0_RGA0vQpGNCo5gMno6VUF8ZHQxHNqvldnX", requisites: "996709194214", isSelect: false }]
   const [selectName, isSelectName] = useState('')
 
   useEffect(() => {
@@ -38,16 +38,16 @@ const BuyPage = () => {
     <div className='buy'>
       <div className="container buy__container">
         <div className="buy__header">
-          <p className="buy__descr">Название модуля: </p>
+          <p className="buy__descr">Курстун аталышы: </p>
           <h2 className="buy__title">{module?.name}</h2>
         </div>
         <div className="buy__info">
           <div className="buy__price">
-            <p>Стоимость курса: <span>{module?.price} сом</span> </p>
+            <p>Курстун баасы: <span>{module?.price} сом</span> </p>
           </div> <div className="buy__lessons">
-            <p>Список уроков:  </p><ul>{module?.lessons?.map(lesson => (
+            <p>Сабактардын тизмеси:  </p><ol>{module?.lessons?.map(lesson => (
               <li key={lesson._id}>{lesson.name}</li>
-            ))}</ul>
+            ))}</ol>
           </div>
         </div>
         <div className="buy__methods">
@@ -62,21 +62,21 @@ const BuyPage = () => {
               </div>
             </div>
           ))}
-          <p className="buy__methods-descr">*После оплаты отправьте чек по контактам ниже</p>
+          <p className="buy__methods-descr">*Төлөм жүргүзөндөн кийин чекти төмөнкү ватсап аркылуу жибериниз</p>
         </div>
         {/* <p className="buy__btn-decr">Свяжитесь с контактами ниже, чтобы купить курс</p> */}
         <div className="buy__btn-list">
-          <div className="buy__btn-social">
+          <a href='https://wa.me/996705089710' target={"_blank"} className="buy__btn-social">
             <BsWhatsapp />
-            <p>0550550055</p>
-          </div>
-          <div className="buy__btn-social insta">
+            <p>0705089710</p>
+          </a>
+          {/* <div className="buy__btn-social insta">
             <BsInstagram />
-            <p>_evrika</p>
+            <p>alippe_pro</p>
           </div> <div className="buy__btn-social telegram">
             <BsTelegram />
-            <p>0550550055</p>
-          </div>
+            <p>0705089710</p>
+          </div> */}
         </div>
       </div>
     </div>

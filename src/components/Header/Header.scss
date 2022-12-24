@@ -2,7 +2,23 @@
 
 .header {
   // background: $bgColorLight;
-  background-color: #22222f;
+  // background-color: #22222f;
+  background: linear-gradient(90deg, #026e95 0%, #1b2e35 100%);
+  //   background: #833ab4;  /* fallback for old browsers */
+  // background: -webkit-linear-gradient(to right, #fcb045, #fd1d1d, #833ab4);  /* Chrome 10-25, Safari 5.1-6 */
+  // background: linear-gradient(to right, #fcb045, #fd1d1d, #833ab4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #24c6dc; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #514a9d,
+    #24c6dc
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #514a9d,
+    #24c6dc
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
   box-shadow: $boxShadow;
   position: fixed;
   top: 0;
@@ -26,7 +42,6 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-
     @media (max-width: 426px) {
       height: 70px;
     }
@@ -38,6 +53,13 @@
     font-family: Montserrat;
     font-size: 32px;
     font-weight: 700;
+
+    &-img {
+      width: 100px;
+      display: flex;
+      align-items: center;
+      margin-top: 15px;
+    }
     @media (max-width: 426px) {
       font-size: 28px;
     }
@@ -72,11 +94,11 @@
       height: 100%;
       top: 80px;
       left: 0;
-      background-color: #fff;
+      background-color: #22222f;
       display: flex;
       flex-direction: column;
       align-items: center;
-
+      padding-top: 50px;
       @media (max-width: 426px) {
         top: 70px;
       }
@@ -130,14 +152,14 @@
     }
     &-register {
       margin-bottom: 10px;
-      border: 1px solid $mainColorLight;
       border-radius: 5px;
       padding: 8px 30px;
       font-weight: 500;
     }
     &-login {
       background-color: transparent;
-      color: #313140;
+      border: 1px solid $mainColorLight;
+      color: #fff;
       border-radius: 5px;
       padding: 8px 30px;
       font-weight: 500;
@@ -194,7 +216,7 @@
     display: flex;
     align-items: center;
     font-weight: 500;
-    gap: 15px;
+    gap: 30px;
     font-size: 15px;
   }
   &__login {
@@ -206,10 +228,11 @@
     cursor: pointer;
   }
   &__logout {
-    background: tomato;
+    background: #fd1f1e;
     color: #fff;
-    padding: 12px 30px;
-    border-radius: 30px;
+    padding: 8px 30px;
+    border-radius: 5px;
+    font-weight: 500;
     cursor: pointer;
   }
   &__personal {

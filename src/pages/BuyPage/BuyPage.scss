@@ -34,8 +34,7 @@
   &__lessons {
     display: flex;
     align-items: center;
-    ul {
-      list-style-type: none;
+    ol {
       margin-left: 5px;
     }
   }
@@ -80,7 +79,7 @@
       margin-bottom: 10px;
     }
     &-descr {
-      color: red;
+      color: rgb(255, 242, 0);
     }
   }
   .buy__method {

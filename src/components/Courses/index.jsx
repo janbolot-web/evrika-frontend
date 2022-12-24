@@ -19,7 +19,7 @@ const Courses = () => {
     <div className='courses'>
       <div className="courses__container">
         <div className="courses__header">
-          <h2>Наши курсы</h2>
+          <h2>Биздин курстар</h2>
           <div className="courses__search">
             <span>
               <FiSearch size={20} />
@@ -37,7 +37,7 @@ const Courses = () => {
                   {/* <div className="courses__price">{course.price} сом</div> */}
                 </div>
                 <div className="courses__img">
-                  <img src="https://fs-thb02.getcourse.ru/fileservice/file/thumbnail/h/6506c5dc9895c11f8fa9b8d267b05dc4.png/s/500x/a/248212/sc/209" alt="" />
+                  <img src={course.previewImgUrl} alt="" />
                 </div>
               </div>
             </Link>

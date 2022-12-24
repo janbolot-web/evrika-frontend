@@ -25,6 +25,7 @@
   &__main {
     display: flex;
     justify-content: space-between;
+    position: relative;
     @media (max-width: 1300px) {
       gap: 30px;
     }
@@ -118,8 +119,27 @@
       display: none;
     }
   }
+  .dwn {
+    max-width: 500px;
+    background-color: #fff;
+    padding: 10px 20px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    color: orange;
+    a {
+      color: #0099f8;
+      margin-left: 10px;
+      font-weight: 500;
+    }
+    span {
+      color: #0099f8;
+    }
+  }
   &__descr {
     margin-bottom: 50px;
+    margin-top: 40px;
+
     h3 {
       font-size: 28px;
       font-weight: 700;
@@ -138,19 +158,51 @@
         font-size: 15px;
       }
     }
+    @media (max-width: 1025px) {
+      width: 100%;
+      position: absolute;
+      top: 1000px;
+      left: 0;
+    }
   }
   &__tests {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     h3 {
       font-size: 28px;
       font-weight: 700;
       line-height: 38px;
     }
+    iframe {
+      max-width: 640px;
+    }
+    @media (max-width: 1025px) {
+      position: absolute;
+      left: 0;
+      top: 1150px;
+    }
   }
   &__sidebar {
     max-width: 440px;
+    height: 100%;
     width: 440px;
     padding: 20px;
     box-shadow: 0px 4px 20px rgb(0 0 0 / 15%);
+    background: #141e30; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+      to right,
+      #243b55,
+      #141e30
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+      to right,
+      #243b55,
+      #141e30
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
     border-radius: 10px;
     &-title {
       font-size: 22px;
@@ -175,7 +227,7 @@
     margin-bottom: 50px;
     cursor: pointer;
     &-name {
-      color: rgb(0, 145, 255);
+      color: #fff;
     }
     @media (max-width: 426px) {
       padding-bottom: 20px;
@@ -187,12 +239,13 @@
     margin-left: 30px;
 
     .active {
-      color: orange;
-      border-bottom: 1px solid orange;
+      color: rgb(255, 200, 0);
+      border-bottom: 1px solid yellow;
     }
     &-name {
       margin-bottom: 20px;
       text-align: left;
+      color: #fff;
     }
     button {
       outline: none;
@@ -269,5 +322,10 @@
 }
 
 .disabled {
-  color: gray;
+  color: silver !important;
+  ol {
+    li {
+      color: silver;
+    }
+  }
 }

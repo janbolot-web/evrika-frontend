@@ -8,8 +8,10 @@ import { Link, Navigate, useNavigate, useParams, useSearchParams } from 'react-r
 import { fetchLesson, fetchLessons, fetchModules, removeLesson } from '../../store/slices/course'
 
 import './VideoPage.scss'
+import { AiFillInfoCircle } from 'react-icons/ai'
 
 const VideoPage = () => {
+  const [testUrl, setTestUrl] = useState('')
   const lessons = useSelector(state => state.courses.lessons)
   const lesson = useSelector(state => state.courses.lesson)
   const userModules = useSelector(state => state.auth.data.courses)
@@ -26,7 +28,6 @@ const VideoPage = () => {
   useEffect(() => {
     dispatch(fetchLessons({ id, userId }))
     dispatch(removeLesson())
-    console.log('rerender');
     // setModulesIds(userModules.map(item => item))
     // setLessonIds(lessons && lessons.modules.map(item => item))
 
@@ -38,7 +39,6 @@ const VideoPage = () => {
   lessonIds = lessons && lessons.modules.map(item => item)
   let arrayIds = modulesIds?.concat(lessonIds)
   // let arrayIds = [...modulesIds, ...lessonIds]
-
   let modules = []
   for (let i = 0; i < arrayIds?.length; i++) {
     for (let k = 0; k < arrayIds?.length; k++) {
@@ -67,21 +67,33 @@ const VideoPage = () => {
           <div className="video__content">
             <h1 className="video__title">{lesson ? lesson.name : lessons?.modules[0]?.lessons[0]?.name}</h1>
             <div className="video__player">
-              {lesson ?
+              {/* WISTA */}
+              {/* {lesson ?
                 <span className={`wistia_embed wistia_async_${lesson.videoUrl} popover=true popoverAnimateThumbnail=true`} style={{ display: 'inline-block', width: '100%', position: 'relative', height: '100%' }}>&nbsp;</span> : <>
                   <div className="video__not-video "><p>Выберите видеоурок справа</p><span><FaHandPointRight size={34} /></span></div>
                   <div className="video__not-video-mobile "><p>Выберите видеоурок внизу</p><span><FaHandPointRight size={34} /></span></div>
-                </>}
+                </>} */}
+              {/* WISTA */}
+              {lesson ? <iframe src={`https://veed.io/embed/${lesson?.videoUrl}`} width="100%" height="100%" frameBorder="0" title="Untitled Project" webkitallowfullscreen="true" mozallowfullscreen="true" allowFullScreen={"allowfullscreen"}></iframe>
+                : <>
+                  <div className="video__not-video "><p>Выберите видеоурок справа</p><span><FaHandPointRight size={34} /></span></div>
+                  <div className="video__not-video-mobile "><p>Выберите видеоурок внизу</p><span><FaHandPointRight size={34} /></span></div>
+                </>
+              }
 
               {/* {!lesson && lessons && <span className={`wistia_embed wistia_async_${lessons?.modules[0]?.lessons[0].videoUrl} popover=true popoverAnimateThumbnail=true`} style={{ display: 'inline-block', width: '100%', position: 'relative', height: '100%' }}>&nbsp;</span>} */}
             </div>
+            {lesson?.pdfBook && <div className="dwn">
+              <AiFillInfoCircle size={22} />
+              <a href="https://drive.google.com/file/d/1ZsFEToRapvPIAbnssRSNXouR7QONUQ8U/view?usp=share_link" target={'_blank'} download>Шар окуу китебинин pdf форматы <span> көчүрүү</span></a>
+            </div>}
             <div className="video__descr">
-              <h3>Описание</h3>
+              <h3>Мазмуну</h3>
               <p>{lesson ? lesson.description : lessons?.modules[0]?.lessons[0]?.description}</p>
             </div>
             <div className="video__tests">
-              <h3>Тесты</h3>
-              <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSd6DwBqItuGjPFuSLYdoX5Y4USoIMWpvsOcSfu4OTpJf5r-nw/viewform?embedded=true" width="640" height="947" frameborder="0" marginheight="0" marginwidth="0">Загрузка…</iframe>
+              <h3>Тест</h3>
+              {lesson?.testUrl && <iframe src={`https://docs.google.com/forms/d/e/${lesson?.testUrl}/viewform?embedded=true`} width="100%" height="1500px" frameBorder="0" marginHeight="0" marginWidth="0">Загрузка…</iframe>}
             </div>
           </div>
           <div className="video__sidebar">
@@ -98,21 +110,21 @@ const VideoPage = () => {
                       ))}
                     </ol>
                   </li>) :
-                   <li className='video__module disabled' key={i}>
+                <li className='video__module disabled' key={i}>
                   <div className="video__header">
                     <p className='video__module-name disabled'>{module?.name}</p>
                     <div className="video__right">
-                      <div className="video__lock-btn">Купить</div>
+                      <Link className="video__lock-btn" to={'/buyCourse/' + id + '?moduleId=' + module?._id} >Сатып алуу</Link>
                       <FiLock />
                     </div>
                   </div>
-                  <ul className='video__lessons'>
+                  <ol className='video__lessons'>
                     {module?.lessons.map((lesson, i) => (
                       <li key={lesson._id} className={`video__lessons-name`} disabled >
                         {lesson.name}  </li>
 
                     ))}
-                  </ul>
+                  </ol>
                   <div className="video__right-mobile">
                     <div className="video__lock-btn">Купить</div>
                     <FiLock />
@@ -124,10 +136,10 @@ const VideoPage = () => {
               {/* {lessons?.modules.map(module => userModules.map(item => item._id === module._id ? accessModules.push([item]) : notAccessModules.push(item))
               )} */}
             </ul>
-            <div className="video__sidebar-title test-title">Тесты</div>
+            {/* <div className="video__sidebar-title test-title">Тесты</div>
             <ol className="video__list">
               <li className="video__item">Тест введение в профессию</li>
-            </ol>
+            </ol> */}
           </div>
         </div>
       </div>

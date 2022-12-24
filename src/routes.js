@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { Routes, Route, Navigate } from "react-router-dom";
+import About from "./pages/AboutPage";
 import AddLessonPage from "./pages/AddLessonPage";
 import AdminPanel from "./pages/AdminPanel";
 import BuyPage from "./pages/BuyPage";
@@ -9,6 +10,7 @@ import DetailPage from "./pages/DetailPage";
 import EditPage from "./pages/EditPage";
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
+import Otzyvy from "./pages/Otzuvy";
 import PersonalPage from "./pages/PersonalPage";
 import RegistrationPage from "./pages/RegistrationPage";
 import VideoPage from "./pages/VideoPage";
@@ -29,6 +31,8 @@ const useRoutes = () => {
         <Route path="/edit/:id" element={<EditPage />} />
         <Route path="/createLesson/:id" element={<AddLessonPage />} />
         <Route path="/login" element={<Navigate to="/adminPanel" replace />} />
+        <Route path="/about-us" element={<About />} />
+        <Route path="/otzuvy" element={<Otzyvy />} />
       </Routes>
     );
   } else if (isAuth === "USER") {
@@ -41,6 +45,8 @@ const useRoutes = () => {
         <Route path="*" element={<Navigate to="/" replace />} />
         <Route path="/adminPanel" element={<VideoPage />} />
         <Route path="/buyCourse/:id" element={<BuyPage />} />
+        <Route path="/about-us" element={<About />} />
+        <Route path="/otzuvy" element={<Otzyvy />} />
       </Routes>
     );
   }
@@ -53,6 +59,8 @@ const useRoutes = () => {
         <Route path="/registration" element={<RegistrationPage />} />
         <Route path="/login" element={<LoginPage />} />
         {/* <Route path="/adminPanel" element={<Navigate to="/" replace />} /> */}
+        <Route path="/about-us" element={<About />} />
+        <Route path="/otzuvy" element={<Otzyvy />} />
       </Routes>
     </div>
   );

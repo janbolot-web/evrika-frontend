@@ -68,22 +68,22 @@
     flex-wrap: wrap;
     list-style-type: none;
     gap: 40px;
-    justify-content: center;
+    // justify-content: center;
     @media (max-width: 1025px) {
       gap: 12px;
     }
   }
   &__item {
-    width: 400px;
-    padding: 20px;
+    width: 600px;
+    padding: 40px;
     box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.04);
     border-radius: 20px;
     margin-bottom: 50px;
-    background: #313140;
+    background: #1f1f55;
     color: #80b2ff;
     cursor: pointer;
     font-weight: 600;
-    transition: all  0.3s ease;
+    transition: all 0.3s ease;
     &-header {
       display: flex;
       align-items: center;
@@ -94,11 +94,26 @@
       }
     }
     &:hover {
-      color: #313140;
-      background: #ffbd00;
+      // color: #313140;
+      background: #833ab4; /* fallback for old browsers */
+      background: #0f0c29; /* fallback for old browsers */
+      background: -webkit-linear-gradient(
+        to right,
+        #24243e,
+        #302b63,
+        #0f0c29
+      ); /* Chrome 10-25, Safari 5.1-6 */
+      background: linear-gradient(
+        to right,
+        #24243e,
+        #302b63,
+        #0f0c29
+      ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     }
     @media (max-width: 1025px) {
-      width: 500px;
+      max-width: 350px;
+      border-radius: 10px;
+      margin-bottom: 10px;
     }
   }
   &__content {
@@ -110,11 +125,15 @@
     }
   }
   &__name {
-    font-size: 18px;
+    font-size: 34px;
     font-weight: 700;
-    line-height: 25px;
+    line-height: 1.2;
     margin-bottom: 22px;
     color: #fff;
+    @media (max-width: 426px) {
+      font-size: 20px;
+      width: 80%;
+    }
     @media (max-width: 390px) {
       font-size: 20px;
     }
@@ -123,8 +142,11 @@
     }
   }
   &__desc {
-    font-size: 15px;
+    font-size: 22px;
     margin-bottom: 10px;
+    @media (max-width: 426px) {
+      width: 80%;
+    }
   }
   &__price {
     //   color: orange;
@@ -134,7 +156,7 @@
     //   font-size: 18px;
   }
   &__img {
-    width: 100px;
+    width: 200px;
     height: 100%;
     img {
       width: 100%;

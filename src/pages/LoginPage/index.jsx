@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useDispatch, useSelector } from 'react-redux'
-import { Navigate } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { fetchAuth, selectIsAuth } from '../../store/slices/auth'
 
@@ -51,7 +51,7 @@ const LoginPage = () => {
             {errors.password?.message && <span>{errors.password?.message}</span>}
             <button disabled={!isValid} type='submit' className="login__btn">Войти</button>
           </form>
-          <p className='login__forgot'>Нет аккаунта? Зарегистроваться</p>
+          <p className='login__forgot'>Нет аккаунта? <Link to={'/registration'} style={{color:"#0099f8"}}>Зарегистроваться</Link></p>
         </div>
       </div>
     </div>

@@ -5,6 +5,7 @@ import { FaPlay } from 'react-icons/fa'
 import './HomePage.scss'
 import mainImg from '../../assets/img/main-banner.svg'
 import Courses from '../../components/Courses'
+import { Link } from 'react-router-dom'
 
 const HomePage = () => {
 
@@ -13,18 +14,18 @@ const HomePage = () => {
       <div className="home__container container">
         <div className="home__banner">
           <div className="home__banner-content">
-            <h1 className="home__title">Актуальные цифровые навыки для всех!</h1>
+            <h1 className="home__title">Учурдун талабына жооп берген билим берүү аянтчасы</h1>
             <div className="home__buttons">
-              <div className="home__about">
+              <Link to='/about-us' className="home__about">
                 <AiFillInfoCircle size={22} />
-                <span >О проекте</span>
-              </div>
+                <span >Биз жөнүндө</span>
+              </Link>
               <div className="home__start">
                 <FaPlay />
-                <span>С чего начать</span></div>
+                <a href='#courses'><span>Биздин курстар</span></a></div>
             </div>
             <div className="home__description">
-              <span>56554</span>
+              <span>150</span>
               <p>человек принимают <br />участие в проекте</p>
             </div>
           </div>
@@ -32,7 +33,13 @@ const HomePage = () => {
             <img src={mainImg} />
           </div>
         </div>
-        <Courses />
+        <div className="otzuvy">
+          
+        </div>
+        <div id="courses">
+
+          <Courses />
+        </div>
       </div>
     </div>
   )

@@ -10,7 +10,23 @@
 body {
   font-family: Manrope;
   // background-color: $bgColorLight;
-  background-color: #22222F;
+  // background: linear-gradient( 90deg,
+  // #7aff8e 0%,
+  // #14c79a  100%,)
+  // background: linear-gradient(
+  //   90deg,
+  //   #026e95 0%,
+  //   #1B2E35 100%,
+  // );
+ background: #24C6DC;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #514A9D, #24C6DC);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #514A9D, #24C6DC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+// background: #43cea2;  /* fallback for old browsers */
+// background: -webkit-linear-gradient(to right, #185a9d, #43cea2);  /* Chrome 10-25, Safari 5.1-6 */
+// background: linear-gradient(to right, #185a9d, #43cea2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
 }
 
 .container {

@@ -5,14 +5,14 @@ import { createCourse } from '../../store/slices/course'
 import './Modal.scss'
 
 const Modal = ({ setShowModal, dispatch, serCourseData }) => {
-  const [title, setTitle] = useState('Комеди Клаб, 10 сезон, 23 выпуск')
-  const [duration, setDuration] = useState('5 часов / 15 уроков')
-  const [description, setDescription] = useState('Шутки резидентов Comedy Club заразны, но не опасны. Наоборот, они способны качественно повысить уровень жизни граждан огромной страны. Смотрите, даже доллар и евро падают со смеху, а настроение у нефти растет прямо на глазах!')
-  const [price, setPrice] = useState(5999)
-  const [previewImgUrl, setPreviewImgUrl] = useState('https://www.imgworlds.com/wp-content/themes/IMG2019/img/phase3/slides/lostvalley-trex.png')
-  const [previewVideoUrl, setPreviewVideoUrl] = useState('4lv6yuh36n')
-  const [authorName, setAuthorName] = useState('ФИО')
-  const [authorProfession, setAuthorProfession] = useState('Учитель кыргызского языка и литературы')
+  const [title, setTitle] = useState('Шар окуу мугалими')
+  const [duration, setDuration] = useState('4 модуля / 10 уроков')
+  const [description, setDescription] = useState('Учурдагы билим берүү системасы азыркы балдардын табиятына жооп бере албай калганына күндөн күнгө күбө болуудабыз. Азыркы Z жана альфа муунунун талаптары, кызыгуусу таптакыр башка. Бул көйгөйлүү маселеге чечим катары "шар окуу" курсу негизделип чыкты. Азыркы балдардын табиятын (психология, физиология ж.б.) эске алуу менен түзүлгөн, окуучулардын шар окуп кетүүсүнө кыска убакытта эффективдүү жыйынтык берген методиканы сунуштайбыз. Ар бир мугалим бул методиканы үйрөнө алат. Аны окуучуларга өтүү менен бирге кошумча киреше булагы катары дагы пайдаланса болот.')
+  const [price, setPrice] = useState('20 000')
+  const [previewImgUrl, setPreviewImgUrl] = useState('https://lh3.googleusercontent.com/u/0/drive-viewer/AFDK6gPqbM1bRYDt_FnXJuysP8TcKcADJjNN4ffixGvghUEIbJGG-iZLupIQsNwt4wbA67TbUBrrn34XrzT4KmHmBpXVcuPTGA=w1960-h2236')
+  const [previewVideoUrl, setPreviewVideoUrl] = useState('4621ca9f-d33a-4ac2-a2a8-e9db21bdb583')
+  const [authorName, setAuthorName] = useState('Арзыкул кызы Мээрим')
+  const [authorProfession, setAuthorProfession] = useState('Мугалим, методист')
   const [authors, setAuthors] = useState([])
   const [modules, setModules] = useState([
     {
@@ -29,8 +29,8 @@ const Modal = ({ setShowModal, dispatch, serCourseData }) => {
 
   const addCourseHandler = () => {
     setAuthors({
-      name: "Екатерина Никитина",
-      profession: "Бизнес-ментор, коуч команд продаж",
+      name: "Арзыкул кызы Мээрим",
+      profession: "Мугалим, методист",
       avatarUrl: "https://drive.google.com/file/d/1xo6VFYSnX5Ano2jki4HPhReYhnsYg-7L/view?usp=share_link",
     })
     const courseData = {

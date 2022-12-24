@@ -1,7 +1,13 @@
-@import '../../variables';
+@import "../../variables";
+
+.ccigSr{
+  display: none !important;
+  background-color: #fff !important;
+}
 
 .home {
   margin-top: 40px;
+  color: #1b1b30;
   &__banner {
     max-width: 1140px;
     margin: 0 auto;
@@ -14,13 +20,29 @@
     //   #000b16 -69.39%,
     //   rgba(0, 121, 255, 0.81) 87.04%
     // );
+    background: linear-gradient(90deg, #026e95 0%, #1b2e35 100%);
+
+    // background: linear-gradient(90deg, #7AFF8E 0%, #2288F5 100%);
+
+    // INSTAGRAM
+    background: #833ab4; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+      to right,
+      #fcb045,
+      #fd1d1d,
+      #833ab4
+    ); /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(
-      90deg,
-      rgb(122, 255, 142) 0%,
-      rgb(34, 136, 245) 100%,
-    );
+      to right,
+      #fcb045,
+      #fd1d1d,
+      #833ab4
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    // INSTAGRAM
+
     border-radius: 30px;
     color: #fff;
+
     padding: 80px 30px 80px 60px;
     margin-bottom: 100px;
     @media (max-width: 1025px) {
@@ -42,11 +64,6 @@
     }
     @media (max-width: 426px) {
       border-radius: 10px;
-      background: linear-gradient(
-      45deg,
-      rgb(34, 136, 245) 0%,
-      rgb(122, 255, 142) 100%,
-    );
     }
   }
   &__title {
@@ -55,7 +72,6 @@
     font-size: 48px;
     font-weight: 700;
     line-height: 59px;
-    color: #313140;
     @media (max-width: 1025px) {
       font-size: 36px;
       line-height: 1.1;
@@ -78,7 +94,6 @@
     max-width: 550px;
     font-weight: 500;
     line-height: 25px;
-    color: #313140;
     display: flex;
     align-items: center;
     gap: 20px;
@@ -90,7 +105,6 @@
       }
     }
     p {
-      color: #313140;
       font-weight: 600;
       font-size: 18px;
       text-align: left;
