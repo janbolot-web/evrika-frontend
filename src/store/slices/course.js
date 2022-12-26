@@ -173,6 +173,9 @@ const courseSlice = createSlice({
     removeLesson: (state) => {
       state.lesson = null;
     },
+    clearModules: (state) => {
+      state.modules = null;
+    },
   },
   extraReducers: {
     [fetchAllCourses.pending]: (state, action) => {
@@ -288,4 +291,4 @@ const courseSlice = createSlice({
 
 export const courseReducer = courseSlice.reducer;
 
-export const { removeLesson } = courseSlice.actions;
+export const { removeLesson, clearModules } = courseSlice.actions;

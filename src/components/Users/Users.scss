@@ -2,8 +2,9 @@
   color: #fff;
   margin-top: 40px;
   &__container {
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     border-radius: 20px;
+    background-color: #00000024;
     padding: 30px;
   }
   &__title {
@@ -18,7 +19,7 @@
     border-radius: 10px;
     font-size: 16px;
     padding: 20px;
-    color: #0099f8;
+    color: rgb(0, 255, 64);
     &-name {
       display: flex;
       align-items: center;
@@ -106,6 +107,14 @@
   }
   &__lockBtn {
     background-color: #0099f8;
+    color: #fff;
+    font-size: 16px;
+    padding: 8px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  &__banBtn{
+    background-color: #fd1f1e;
     color: #fff;
     font-size: 16px;
     padding: 8px 20px;

@@ -58,7 +58,6 @@ export const fetchUsers = createAsyncThunk(
 export const fetchUserById = createAsyncThunk(
   "auth/fetchUserById",
   async function (id) {
-    console.log(id);
     const data = await axios
       .get(`/getUserById/${id}`)
       .then((res) => res.data)
@@ -87,11 +86,29 @@ export const addModuleToUser = createAsyncThunk(
   "auth/addModuleToUser",
   async function (params) {
     try {
-      await axios
+      const data = await axios
         .patch(`/addCourseToUser`, { params })
         .then((res) => res.data)
+        .then((data) => data);
+      toast.success(data.message);
+      return data;
+    } catch (error) {
+      toast.error(error.response.data.message);
+      console.log(error);
+    }
+  }
+);
+
+export const removeUserModule = createAsyncThunk(
+  "auth/removeUserModule",
+  async function (params) {
+    console.log(params);
+    try {
+      await axios
+        .delete(`/removeUserModule/${params.moduleId}?userId=${params.userId}`)
+        .then((res) => res.data)
         .then((data) => toast.success(data.message));
-      return;
+      return params.moduleId;
     } catch (error) {
       toast.error(error.response.data.message);
       console.log(error);
@@ -194,8 +211,10 @@ const authSlice = createSlice({
     },
     [addModuleToUser.fulfilled]: (state, action) => {
       state.status = "loaded";
-      console.log(action.payload);
-      state.users = state.users.filter((user) => user._id !== action.payload);
+      let data = action.payload.module[0];
+      data = { ...data, isAccess: false };
+      console.log(data);
+      state.user.courses = [...state.user.courses, data];
     },
     [addModuleToUser.rejected]: (state, action) => {
       state.status = "error";
@@ -211,6 +230,19 @@ const authSlice = createSlice({
     [fetchUserById.rejected]: (state, action) => {
       state.status = "error";
       state.user = null;
+    },
+    [removeUserModule.pending]: (state) => {
+      state.status = "loading";
+    },
+    [removeUserModule.fulfilled]: (state, action) => {
+      state.status = "loaded";
+      console.log(action.payload);
+      state.user.courses = state.user.courses.filter(
+        (course) => course._id !== action.payload
+      );
+    },
+    [removeUserModule.rejected]: (state, action) => {
+      state.status = "error";
     },
   },
 });

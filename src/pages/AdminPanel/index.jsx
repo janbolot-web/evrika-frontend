@@ -33,7 +33,7 @@ const AdminPanel = () => {
   return (
     <div className='admin'>
       <div className="container admin__container">
-        <h1 className="admin__title">Привет <span>{admin?.name}!</span></h1>
+        <h1 className="admin__title">Добро пожаловать в админ панель!</h1>
         <div className="admin__block">
           <h3 className="admin__block-title">
             Список курсов
@@ -56,7 +56,7 @@ const AdminPanel = () => {
                   <div className='admin__courses-icons'>
                     <span className="admin__courses-add">
                       <Link to={`/createLesson/${course.id}`}>
-                        <AiOutlinePlus color='#3388f7' size={24} />
+                        <AiOutlinePlus color='#fff' size={24} />
                       </Link>
                     </span>
                     <span className='admin__courses-edit'>

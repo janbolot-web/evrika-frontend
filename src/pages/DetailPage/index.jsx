@@ -80,7 +80,7 @@ const DetailPage = () => {
           <div className="detail__greet-content">
             <div className="detail__greet-video">
               {course ?
-                <iframe src={`https://veed.io/embed/${course?.previewVideoUrl}`} width="100%" height="100%" frameborder="0" title="video5325932779035171283" webkitallowfullscreen mozallowfullscreen allowfullscreen="allowfullscreen"></iframe> : null}
+                <iframe src={`https://veed.io/embed/${course?.previewVideoUrl}?watermark=0&color=&sharing=0&title=0`} width="100%" height="100%" frameborder="0" title="video5325932779035171283" webkitallowfullscreen mozallowfullscreen allowfullscreen="allowfullscreen"></iframe> : null}
             </div>
             <div className="detail__greet-text">
               {/* <h3>{course?.authorName}</h3> */}

@@ -28,7 +28,8 @@ const VideoPage = () => {
   useEffect(() => {
     dispatch(fetchLessons({ id, userId }))
     dispatch(removeLesson())
-    // setModulesIds(userModules.map(item => item))
+    window.scrollTo(0, 0)
+      // setModulesIds(userModules.map(item => item))
     // setLessonIds(lessons && lessons.modules.map(item => item))
 
 
@@ -74,7 +75,7 @@ const VideoPage = () => {
                   <div className="video__not-video-mobile "><p>Выберите видеоурок внизу</p><span><FaHandPointRight size={34} /></span></div>
                 </>} */}
               {/* WISTA */}
-              {lesson ? <iframe src={`https://veed.io/embed/${lesson?.videoUrl}`} width="100%" height="100%" frameBorder="0" title="Untitled Project" webkitallowfullscreen="true" mozallowfullscreen="true" allowFullScreen={"allowfullscreen"}></iframe>
+              {lesson ? <iframe src={`https://veed.io/embed/${lesson?.videoUrl}?watermark=0&color=&sharing=0&title=0`} width="100%" height="100%" frameborder="0" title="video5325932779035171283" webkitallowfullscreen mozallowfullscreen allowfullscreen="allowfullscreen"></iframe>
                 : <>
                   <div className="video__not-video "><p>Выберите видеоурок справа</p><span><FaHandPointRight size={34} /></span></div>
                   <div className="video__not-video-mobile "><p>Выберите видеоурок внизу</p><span><FaHandPointRight size={34} /></span></div>

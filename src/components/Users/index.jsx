@@ -56,7 +56,7 @@ const Users = () => {
                   <div className="users__right">
                     <span className="admin__courses-add" onClick={() => showModalHandle({ id: user._id })}>
                       {/* <Link to={`/createLesson/${course.id}`}> */}
-                      <AiOutlinePlus color='#3388f7' size={24} />
+                      <AiOutlinePlus color='#fff' size={24} />
                       {/* </Link> */}
                     </span>
                     <span className='admin__courses-delete' onClick={() => removeUser({ id: user._id, name: user.name })} >

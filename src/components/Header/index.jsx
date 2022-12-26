@@ -46,12 +46,12 @@ const Header = () => {
           <div className="header__menu-icon">
             <i onClick={() => setShowMenu(!showMenu)}>{showMenu ? <HiOutlineX size={32} color={'#fff'} /> : <HiOutlineMenuAlt1 color={'#fff'} size={32} />}</i>
             {showMenu && <div className="header__menu-mobile">
-              {isAuth && <Link onClick={() => setShowMenu(false)} className="header__menu-personal" to='/adminPanel'>Личный кабинет</Link>}
+              {/* {isAuth && <Link onClick={() => setShowMenu(false)} className="header__menu-personal" to='/adminPanel'>Личный кабинет</Link>} */}
               <nav className="header__menu-nav">
                 <ul className="header__menu-list">
                   <li onClick={() => setShowMenu(false)} className="header__menu-item"><Link to="/" className="header__menu-link active">Башкы бет</Link></li>
                   <li onClick={() => setShowMenu(false)} className="header__menu-item"><Link to="/courses" className="header__menu-link">Курстар</Link></li>
-                  <li className="header__item"><Link to="/otzuvy" className="header__link">Бүтүрүүчүлөрдөн ой-пикир</Link></li>
+                  <li onClick={() => setShowMenu(false)} className="header__item"><Link to="/otzuvy" className="header__link">Бүтүрүүчүлөрдөн ой-пикир</Link></li>
                 </ul>
               </nav>
               <div className="header__menu-switch" >

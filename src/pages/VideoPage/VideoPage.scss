@@ -161,8 +161,14 @@
     @media (max-width: 1025px) {
       width: 100%;
       position: absolute;
-      top: 1000px;
+      top: 1530px;
       left: 0;
+    }
+    @media (max-width:401px) {
+      top: 1700px;
+    }
+    @media (max-width:340px) {
+      top: 1800px;
     }
   }
   &__tests {
@@ -182,7 +188,16 @@
     @media (max-width: 1025px) {
       position: absolute;
       left: 0;
-      top: 1150px;
+      top: 1850px;
+    }
+    @media (max-width:401px) {
+      top: 1900px;
+    }
+    @media (max-width:401px) {
+      top: 1950px;
+    }
+    @media (max-width:341px) {
+      top: 2100px;
     }
   }
   &__sidebar {

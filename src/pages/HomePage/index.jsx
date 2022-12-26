@@ -25,8 +25,8 @@ const HomePage = () => {
                 <a href='#courses'><span>Биздин курстар</span></a></div>
             </div>
             <div className="home__description">
-              <span>150</span>
-              <p>человек принимают <br />участие в проекте</p>
+              <span>150+</span>
+              <p>мугалим катышкан</p>
             </div>
           </div>
           <div className="home__img">

@@ -62,7 +62,7 @@ const BuyPage = () => {
               </div>
             </div>
           ))}
-          <p className="buy__methods-descr">*Төлөм жүргүзөндөн кийин чекти төмөнкү ватсап аркылуу жибериниз</p>
+          <p className="buy__methods-descr">*Төлөм жүргүзгөндөн кийин чекти төмөнкү ватсап аркылуу жибериниз</p>
         </div>
         {/* <p className="buy__btn-decr">Свяжитесь с контактами ниже, чтобы купить курс</p> */}
         <div className="buy__btn-list">

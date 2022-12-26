@@ -4,17 +4,16 @@
   &__container {
   }
   &__title {
-    color: #06283d;
+    color: rgb(1, 199, 176);
     margin-bottom: 30px;
     span {
-      color: #0099f8;
     }
   }
   &__block {
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     border-radius: 20px;
     padding: 30px;
-    // background-color: #fcfcff;
+    background-color: #00000024;
     &-title {
       font-size: 22px;
       margin-bottom: 30px;
@@ -70,7 +69,7 @@
     border-radius: 10px;
     font-size: 16px;
     padding: 20px;
-    color: #0099f8;
+    color: rgb(0, 255, 64);
     &-name {
       display: flex;
       align-items: center;
